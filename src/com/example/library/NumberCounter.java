@@ -8,6 +8,8 @@ public class NumberCounter extends JFrame{
     private JButton IncreaseButton;
     private JLabel CountLabel;
 
+    private int count = 0;
+
     public NumberCounter(){
         setTitle("Number Counter");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,9 +22,21 @@ public class NumberCounter extends JFrame{
         IncreaseButton.setName("IncreaseButton");
         CountLabel.setName("CountLabel");
 
-        DecreaseButton.addActionListener(e -> CountLabel.setText(String.valueOf(Integer.parseInt(CountLabel.getText()) - 1)));
-        IncreaseButton.addActionListener(e -> CountLabel.setText(String.valueOf(Integer.parseInt(CountLabel.getText()) + 1)));
+        DecreaseButton.addActionListener(e -> {
+            count--;
+            CountLabel.setText(String.valueOf(count));
+        });
+        IncreaseButton.addActionListener(e -> {
+            count++;
+            CountLabel.setText(String.valueOf(count));
+        });
 
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            NumberCounter counter = new NumberCounter();
+        });
     }
 
 }
