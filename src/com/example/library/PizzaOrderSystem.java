@@ -58,4 +58,11 @@ public class PizzaOrderSystem extends JFrame{
 
         Total.setText(currentTotal + "");
     }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            PizzaOrderSystem order = new PizzaOrderSystem();
+        });
+    }
+
 }
